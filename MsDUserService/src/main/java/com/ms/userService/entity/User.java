@@ -25,7 +25,7 @@ public class User {
 
 	@Column(name = "ABOUT")
 	private String about;
-	
+
 	@Transient
 	private List<Rating> ratings = new ArrayList<>();
 
@@ -66,17 +66,25 @@ public class User {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", about=" + about + "]";
 	}
 
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	public List<Rating> getRatings() {
 		return ratings;
 	}
 
 	public void setRatings(List<Rating> ratings) {
 		this.ratings = ratings;
+	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(String userId, String name, String email, String about) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.about = about;
 	}
 
 }
