@@ -20,6 +20,25 @@ spring:
   config:
     import: optional:configserver:http://localhost:8085 
     
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-63793739.okta.com/oauth2/default
+      client:
+        registration:
+          my-internal-client:
+            provider: okta
+            authorization-grant-type: client_credentials
+            scope:
+            - internal
+            client-id: 0oaf43h4yhOjP0QHq5d7
+            client-secret:  jg2SO1s8GSKJgznNV2n4sZ4uiOtncI1O4D3OfqHkmy2ck9tGuoKCFOhy4o-JFM_h
+        provider:
+          okta:
+            issuer-uri: https://dev-63793739.okta.com/oauth2/default
+            
+
 management:
   health:
     circuitbreakers:
@@ -59,7 +78,11 @@ management:
 #        limit-for-period: 2
 #        timeout-duration: 0s
 
-
+okta:
+  oauth2:
+    issuer: https://dev-63793739.okta.com/oauth2/default
+    audience: api://default
+    
 
 
 #eureka:

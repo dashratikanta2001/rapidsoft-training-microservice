@@ -3,6 +3,7 @@ package com.ms.hotelService.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ public class HotelController {
 	private HotelService hotelService;
 
 	// create hotel
+	@PreAuthorize("hasAuthority('Admin')")
 	@PostMapping
 	public ResponseEntity<?> createHotel(@RequestBody Hotel hotel) {
 		// TODO: process POST request
@@ -29,6 +31,7 @@ public class HotelController {
 	}
 
 	// get single hotel
+	@PreAuthorize("hasAuthority('SCOPE_internal')")
 	@GetMapping("/{hotelId}")
 	public ResponseEntity<?> getHotel(@PathVariable("hotelId") String hotelId) {
 		// TODO: process POST request
@@ -37,6 +40,7 @@ public class HotelController {
 	}
 
 	// get all hotel
+	@PreAuthorize("hasAuthority('SCOPE_internal') || hasAuthority('Admin')")
 	@GetMapping
 	public ResponseEntity<?> getAllHotel() {
 		// TODO: process POST request
