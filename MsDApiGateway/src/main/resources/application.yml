@@ -37,6 +37,8 @@ okta:
     - profile
     - email
     - offline_access
+#email: rijopak834@oprevolt.com
+#password: Abcdef1@
     
    
 #eureka:
