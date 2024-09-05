@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/staffs")
 public class StaffController {
 
-	@GetMapping
+	@GetMapping("/1")
 	public ResponseEntity<?> getStaffs()
 	{
 		List<String> list = Arrays.asList("Ram", "Shyam", "Sita");
